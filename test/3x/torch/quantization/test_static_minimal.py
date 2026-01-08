@@ -47,7 +47,7 @@ def test_static_int8_quantization_smoke(tmp_path):
     assert getattr(quantized_model, "is_quantized", False), "Converted model did not report quantized state"
 
     graph = getattr(quantized_model, "inlined_graph", None) or getattr(quantized_model, "graph", None)
-    assert graph is not None, "Quantized model is missing a TorchScript graph"
+    assert graph is not None, "Quantized model is missing a PT2E graph"
     quant_node_detected = False
     if hasattr(graph, "nodes"):
         try:
